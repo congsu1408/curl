@@ -1,0 +1,7 @@
+Invoke-RestMethod -Uri http://localhost:8000/api/tasks/1 -Method DELETE
+Invoke-RestMethod -Uri http://localhost:8000/api/tasks -Method GET
+$body = @{
+    title = "New Task"
+    description = "Task description"
+}
+Invoke-RestMethod -Uri http://localhost:8000/api/tasks -Method POST -Body ($body | ConvertTo-Json) -ContentType "application/json"
